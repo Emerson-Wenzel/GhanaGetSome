@@ -81,19 +81,31 @@ function dumpData(){
             console.log("recieved data dump");
             console.log(schools);
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
                 //center: {lat: -34.397, lng: 150.644}
             });
-            centerOnMarker(schools[0].lat, schools[0].lon); 
+            centerOnMarker(schools[0].lat, schools[0].lon, 8); 
             populateSchools(schools);
+            postDump(schools);
         }
     });  
 }
 
-function centerOnMarker(latitude, longitude){
+function centerOnMarker(latitude, longitude, zoom){
     newPosition = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
-    zoom: 8,
-    map.setCenter(newPosition)
+    map.setZoom(zoom);
+    map.setCenter(newPosition);
+}
+
+function postDump(schools){
+    console.log("Dumping");
+    var element = '';
+    for(var i = 0; i < schools.length; i++){
+        element += "<p>" +schools[i].name+ "<br>Longitude: " + schools[i].lon + "; Latitude: " + schools[i].lat + "<br>";    
+        element += "Contact Name: " + schools[i].contactName + "; Contact Number: " + schools[i].contactNumber + "</p><br>";        
+        console.log(element);
+        
+    }
+    $('.dump').html(element);
 }
 
 function populateSchools(schoolArray) {
@@ -141,7 +153,7 @@ function printResults(data){
         output += "Contact Number: " + data.contactNumber + "<br>";
         output += "<image src='http://localhost:3000/uploads/" + data.name + "_1.jpg' width='400px'>";
         $("#results").html(output);  
-        
+        centerOnMarker(data.lat, data.lon, 12);
         
     }
 }
