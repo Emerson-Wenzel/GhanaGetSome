@@ -11,6 +11,12 @@
         <div id="bg">
             <img src="images/student.jpg" alt="" />
         </div>
+        <a href="map.html">
+            <h1 id = "map"><span>Go to Map View</span></h1>
+        </a>
+          <a href="HomePage.html">
+            <h1 id = "home"><span>Home</span></h1>
+        </a>
         <form id ="studentinfo">
             <div class="submission-form">
                 <label for="school_name">School Name </label>
@@ -39,7 +45,7 @@
         </div>
           Select Images: <input id="upload-input" type="file" name="uploads[]" multiple="multiple">
             
-        <button type="submit" class="btn btn-primary" id="submit"> Submit </button>
+        <button type="submit" class="btn btn-primary" onClick="sendForm()" id="submit"> Submit </button>
             <br>
     </form>
     </div>
@@ -56,7 +62,6 @@
                 formData.append("lat", $('#lat').val());
                 formData.append("contact", $('#contact').val());
                 formData.append("contactNum", $('#contactNum').val());
-
                 console.log(formData);
                 if (files.length > 0){
                     // loop through all the selected files and add them to the formData object
@@ -80,4 +85,3 @@
             </script>
     </body>
 </html>
-
