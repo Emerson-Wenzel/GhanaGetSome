@@ -4,6 +4,7 @@
     <title>Form Submission</title>
         <link href="styles/form.css" rel="stylesheet">
         <link href="styles/bootstrap-3.3.7-dist/css/bootstrap/css" type="text/css" rel="stylesheet">
+        <script src="scripts/jquery-3.2.0.js"></script>
     </head>
     <body>
     <div class="image">
@@ -14,33 +15,69 @@
             <div class="submission-form">
                 <label for="school_name">School Name </label>
                 <br>
-                <input type="text" name="schoolname">
+                <input type="text" name="schoolname" id="name">
                 <br>
             </div>
             <div class="submission-form">
                 <label for="location co-ordinates">Location Co-ordinates</label>
                 <br>
-                <input type="number" name="latitude" placeholder="Latitude">
-                <input type="number" name="longitude" placeholder="Longitude">
+                <input type="number" name="latitude" placeholder="Latitude" id="lat">
+                <input type="number" name="longitude" placeholder="Longitude" id="lon">
                 <br>
             </div>
             <div class="submission-form">
                 <label for="contact_name">Administrative Contact Name </label>
                 <br>
-                <input type="text" name="adminname">
+                <input type="text" name="adminname" id="contact">
                 <br>
             </div>
             <div class="submission-form">
                 <label for="phone_number">Phone Number </label>
                 <br>
-                <input type="text" name="phonenum">
+                <input type="text" name="phonenum" id="contactNum">
                 <br>
         </div>
           Select Images: <input type="file" name="img" multiple>
-        <button type="submit" class="btn btn-primary"> Submit </button>
+            
+        <button type="submit" class="btn btn-primary" onClick="sendForm()" id="submit"> Submit </button>
             <br>
     </form>
     </div>
+        <script>
+            $('#submit').on('click', function(event){
+                //function sendForm(){
+                event.preventDefault();
+                console.log('processing onclick');
+                var files = $('#upload-input').get(0).files;
+    
+                var formData = new FormData();
+                formData.append("name", $('#name').val());
+                formData.append("lon", $('#lon').val());
+                formData.append("lat", $('#lat').val());
+                formData.append("contact", $('#contact').val());
+                formData.append("contactNum", $('#contactNum').val());
+
+                console.log(formData);
+                if (files.length > 0){
+                    // loop through all the selected files and add them to the formData object
+                    for (var i = 0; i < files.length; i++) {
+      
+                        var file = files[i];
+                        formData.append('uploads[]', file, file.name);  
+                    }
+                    $.ajax({
+                        url: 'http://localhost:3000/upload',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(data){
+                            console.log('upload successful!\n' + data);
+                        }
+                    });
+                }
+            });
+            </script>
     </body>
 </html>
 
