@@ -1,0 +1,17 @@
+Tufts University
+Lat 42.4075 
+Lon -71.1190
+Tony Monaco
+6176285000
+
+Harvard University
+Lat 42.3770
+Lon -71.1167
+Michael Cera
+6174951000
+
+UC Berkeley
+Lat 37.8719
+Lon -122.2585
+DJ Vlad
+5106426000
