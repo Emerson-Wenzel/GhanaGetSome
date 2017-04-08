@@ -1,4 +1,9 @@
-
+function schoolDataStruct(lat, long, name, phone, adminname, imagearray){
+    var schoolData = {latitude: lat, longitude: long, 
+                      school: name, phonenum: phone, 
+                      admin: adminname, images: imagearray};
+    return schoolData;
+}
         
 function addManyMarkers(latArray, longArray, map) {
     numberLocations = locationArray.length;
@@ -12,6 +17,18 @@ function addManyMarkers(latArray, longArray, map) {
 
   function initMap() {
     console.log("Hello");
+ /*   $.ajax({
+        url: "localhost:3000",
+        datatype: "json"
+    }).done(function(data){
+       var JSONarray = data;
+       console.log(JSONarray);
+    });
+
+      $.getJSON("localhost:3000", function(data){
+        console.log(data);
+      });
+*/
     var homeLocation = {lat: 7.9465, lng: -1};
     var Ghana2 = {lat: 7.9465, lng: -3};
           
@@ -29,6 +46,7 @@ function addManyMarkers(latArray, longArray, map) {
 // Adds 1 marker
  function addMarker(latitude, longitude, map, data) {
     "use strict";
+    var school = loadData
     var pos = {lat: latitude, lng: longitude};
     var marker = new google.maps.Marker({
         position: pos,
@@ -39,7 +57,22 @@ function addManyMarkers(latArray, longArray, map) {
     })
     marker.addListener('click', function(){
         infowindow.open(map,marker);
+        marker.addListener('click', function(){
+            markerInfo();
+        });
     });
 
 
+}
+
+// opens info on left bar
+function markerInfo(){
+    document.getElementById("displayschool").innerHTML = "School Name: Longitude: ";
+    
+}
+
+function loadData(schoolName){
+    var responseJSON = $.getJson("localhost:3000", schoolName);
+    var schoolData = JSON.parse(responseJSON);
+    return schoolData;
 }
