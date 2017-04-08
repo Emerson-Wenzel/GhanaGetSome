@@ -18,8 +18,6 @@ function addManyMarkers(latArray, longArray, map) {
   function initMap() {
     console.log("Hello");
     schoolData = dumpData();
-      console.log(schoolData);
-      console.log("printed schoolData");
     var homeLocation = {lat: 7.9465, lng: -1};
           
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -82,11 +80,58 @@ function dumpData(){
                 data = data.substring(data.indexOf("}") + 2);
                 schools.push(JSON.parse(parsed));
             }
+            console.log("recieved data dump");
             console.log(schools);
             return schools;
         }
     });  
 }
 
+function populateSchools(schoolArray, map) {
+    numberLocations = schoolArray.length;
+    for (var i = 0; i < numberLocations; i++){
+        addMarker(schoolArray[i].latitude, schoolArray[i].longitude, map, schoolArray[i].school)
+        //addMarker(latArraY[i], longArray[i], map, detailArray[i])
+        console.log(i);
+    }
+}
+
+$('#searchButton').on('click', function(){
+    console.log("processing search");
+    var formData = new FormData();
+    formData.append("name", $('#search').val());
+    console.log($('#search').val());
+    console.log(formData);
+
+    
+    $.ajax({
+        url: 'http://localhost:3000/search/',
+        data: {'name' : $('#search').val()},
+        type: 'GET',
+        dataType: "json",
+        success: function(data){
+            console.log("search complete");
+            console.log(data);
+            printResults(data);
+        }
+    }); 
+})
+
+function printResults(data){
+    if(data == null){
+        console.log("printing not found");
+        $("#results").html("School Not Found");
+    }else{
+        var output = "Name: " + data.name + "<br>";
+        output += "Longitude: " + data.lon + "<br>";
+        output += "Latitude: " + data.lat + "<br>";
+        output += "Contact Name: " + data.contactName + "<br>";
+        output += "Contact Number: " + data.contactNumber + "<br>";
+        output += "<image src='http://localhost:3000/uploads/" + data.name + "_1.jpg' width='400px'>";
+        $("#results").html(output);  
+        
+        
+    }
+}
 
 
