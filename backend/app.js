@@ -31,12 +31,19 @@ app.get('/', function(req, res){
 });
 
 app.get('/database', function(req, res){
+    console.log("dump requested");
     var jsonAry = [];
+    if(schools.length == 0){
+        res.end("database empty");  
+        return;
+    }
+    
     for(var i =0; i < schools.length; i++){
         jsonAry.push(buildSchoolJson(schools[i]));
     }
+    console.log("response built");
     res.setHeader('Content-Type', 'application/json');
-    res.end(jsonAry);
+    res.end(jsonAry.toString());
 });
 
 app.get('/search', function(req,res){

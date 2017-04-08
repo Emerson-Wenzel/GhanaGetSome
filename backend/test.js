@@ -54,3 +54,21 @@ $('#searchButton').on('click', function(){
     }); 
 })
 
+$('#dump').on('click', function(){
+    console.log("requesting dump");
+    $.ajax({
+        url: 'http://localhost:3000/database/',
+        type: 'GET',
+        dataType: "text",
+        success: function(data){
+            var schools = [];
+            while(data.length != 0){
+                var parsed = data.substring(0,data.indexOf("}")+1);
+                data = data.substring(data.indexOf("}") + 2);
+                schools.push(JSON.parse(parsed));
+            }
+            console.log(schools);
+        }
+    });  
+})
+
