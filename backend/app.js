@@ -17,6 +17,8 @@ function school(name, lon, lat, contactName, contactNumber, imagePaths){
 
 // app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('uploads'));
+app.use('/static', express.static('public'));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -26,6 +28,15 @@ app.use(function(req, res, next) {
 
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/database', function(req, res){
+    var jsonAry = [];
+    for(var i =0; i < schools.length; i++){
+        jsonAry.push(buildSchoolJson(schools[i]));
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.end(jsonAry);
 });
 
 app.get('/search', function(req,res){
@@ -74,7 +85,7 @@ app.post('/upload', function(req, res){
   form.multiples = true;
 
   // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/uploads');
+  form.uploadDir = path.join(__dirname, '/public/uploads');
 
   // every time a file has been uploaded successfully,
   // rename it to it's orignal name
