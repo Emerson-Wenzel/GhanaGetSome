@@ -1,5 +1,58 @@
-/*form css*/
+/*form.css makes changes to the form file*/
 
-h1 {
-  color: red;
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+#studentinfo {
+    padding: 1.5%;
+    width: 35%;
+    line-height: 210%;
+    border: 3px solid white;
+}
+
+button[type=submit] {
+    font-family: sans-serif;
+    background-color: skyblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input {
+    padding: 1%;
+}
+
+.submission-form {
+    font-family:Veranda, sans-serif;
+}
+form {
+    top: 10%;
+    padding-top: 0.1%;
+    background-color:rgba(0,0,0,0.7); 
+    padding-left: 0.5%;
+    padding-right: 0.3%;
+    font-family: sans-serif;
+    color: white;
+    position: absolute;
+    border: 3px solid white;
 }

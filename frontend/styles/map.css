@@ -1,0 +1,56 @@
+/*map stuff css*/
+
+body{
+    background-color: darkseagreen;
+}
+#map {
+        height: 550px;
+        width: 90%;
+        border: 2px solid white;
+        border-style: solid;
+        float:right;
+}
+
+#body {
+    padding-left: 8%;
+    font-family: Verenda, sans-serif;
+    background-color: lightgray;
+    border: 2px solid white;
+}
+
+#header {
+   padding-left: 12%;
+   font-family: Helvetica, sans-serif;
+   background-color: lightgray;
+    border: 3px solid white;
+}
+.container {
+    display: grid;
+    grid-template-columns: 25% 100%;
+    grid-template rows: 25% 100%;
+    grid-template-areas:
+        "title map1"
+        "info map1";
+}
+
+.map1 {
+    overflow: hidden;
+    padding-bottom: 5%;
+    padding-top: 4%;
+    padding-right: 5%;
+    float: right;
+    width: 70%;
+}
+
+.left {
+    width: 100%
+}
+
+
+.title {
+    height: 10%;
+}
+.info {
+    width: auto;
+    height: 85%
+}
