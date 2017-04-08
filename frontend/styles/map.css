@@ -3,6 +3,26 @@
 body{
     background-color: darkseagreen;
 }
+
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
 #map {
         height: 550px;
         width: 90%;
@@ -12,16 +32,29 @@ body{
 }
 
 #body {
-    padding-left: 8%;
+    padding-left: 6%;
     font-family: Verenda, sans-serif;
-    background-color: lightgray;
-    border: 2px solid white;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+}
+
+h2:hover {
+    text-decoration: none;
+}
+
+h2 {
+    position: relative;
+    text-decoration: none;
+    font-family: Verenda, sans-serif;
+    color: white;
 }
 
 #header {
-   padding-left: 12%;
-   font-family: Helvetica, sans-serif;
-   background-color: lightgray;
+   padding-left: 10%;
+   font-family: Verenda, sans-serif;
+    background-color: black;
+    color: white;
     border: 3px solid white;
 }
 .container {
@@ -44,6 +77,10 @@ body{
 
 .left {
     width: 100%
+    position: absolute;
+    padding-left:5%;
+    padding-right: 5%;
+    z-index: 1;
 }
 
 
