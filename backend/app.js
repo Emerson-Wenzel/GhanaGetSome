@@ -51,8 +51,8 @@ app.get('/search', function(req,res){
     
     var school = searchSchool(searchName);
     if(school == -1){
-        //school not found
         console.log("school not found");
+        res.end("null");
     }else{
         console.log("found, returning data");
         res.setHeader('Content-Type', 'application/json');
