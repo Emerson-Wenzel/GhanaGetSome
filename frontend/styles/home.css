@@ -20,23 +20,34 @@
 }
 
 h2 {
-    padding-left: 10px;
-    padding-right: 3px;
+    padding-top: 0.1%;
+    background-color:rgba(0,0,0,0.7); 
+    padding-left: 0.5%;
+    padding-right: 0.3%;
     font-family: sans-serif;
-    font-size: 30px;
+    font-size: 7%;
     color: white;
     position: absolute;
-    top: 35%;
-    left: 75%;
-    width: 20%;
     border: 3px solid white;
 }
 
+#submit {
+    top: 35%;
+    left: 75%;
+    width: 20%;
+}
+
+#map {
+    top: 46%;
+    left: 75%;
+    width: 20%;
+}
+
 h2 span {
+    padding-left: 55px;
     color: white;
     font: bold 25px/45px Helvetica, Sans Serif;
     letter-spacing: -1px;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0);
-    padding: 15px;
 }
