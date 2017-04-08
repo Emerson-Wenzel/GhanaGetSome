@@ -13,23 +13,13 @@ function addManyMarkers(latArray, longArray, map) {
     }            
 }
 
+var map;
 
-
-  function initMap() {
+function initMap() {
     console.log("Hello");
-    schoolData = dumpData();
-    var homeLocation = {lat: 7.9465, lng: -1};
-          
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 6,
-        center: homeLocation
-      });
-          
-    mDetail1 = "School 1"
-    mDetail2 = "School 2"
-        addMarker(10, -2, map, mDetail1 );
-        addMarker(8, 0, map, mDetail2);
-  }
+    dumpData();
+    var homeLocation = {lat: 7.9465, lng: -1}; 
+ }
  
 // Adds 1 marker
  function addMarker(latitude, longitude, map, data) {
@@ -82,15 +72,28 @@ function dumpData(){
             }
             console.log("recieved data dump");
             console.log(schools);
-            return schools;
+            populateSchools(schools);
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: homeLocation
+            });
         }
     });  
 }
 
-function populateSchools(schoolArray, map) {
+function centerOnMarker(latitude, longitude, map){
+    newPosition = {lat: latitude, lng: longitude};
+    zoom: 8,
+    map.setCenter(newPosition)
+}
+
+function populateSchools(schoolArray) {
+    console.log("populating");
     numberLocations = schoolArray.length;
     for (var i = 0; i < numberLocations; i++){
-        addMarker(schoolArray[i].latitude, schoolArray[i].longitude, map, schoolArray[i].school)
+        console.log(schoolArray[i].lat);
+        console.log(schoolArray[i].lon);
+        addMarker(parseFloat(schoolArray[i].lat), parseFloat(schoolArray[i].lon), map, schoolArray[i].name)
         //addMarker(latArraY[i], longArray[i], map, detailArray[i])
         console.log(i);
     }
