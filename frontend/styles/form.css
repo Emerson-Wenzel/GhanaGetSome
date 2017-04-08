@@ -19,6 +19,7 @@
   min-height: 50%;
 }
 
+
 #studentinfo {
     padding: 1.5%;
     width: 35%;
@@ -68,15 +69,27 @@ form {
     position: absolute;
     border: 3px solid white;
 }
-#map {
-    padding-top: 0.1%;
-    background-color: darkslategrey;
+
+h1{
+    background-color: rgba(0,0,0,0.7);
         //        rgba(0,0,0,0.7); 
-    padding-left: 20.8%;
+    padding-left:26.2%;
     padding-right: 5%;
     font-family: sans-serif;
     color: whitesmoke;
     position: absolute;
     
-    font-size: 25px;
+    font-size: 170%;
+}
+
+#map {
+    background-color: rgba(0,0,0,0.7);
+        //        rgba(0,0,0,0.7); 
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: sans-serif;
+    color: whitesmoke;
+    position: absolute;
+    
+    font-size: 170%;
 }
