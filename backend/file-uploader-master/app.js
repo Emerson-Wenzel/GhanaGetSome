@@ -7,13 +7,14 @@ var fs = require('fs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 app.post('/upload', function(req, res){
+
   // create an incoming form object
   var form = new formidable.IncomingForm();
-    
+
   // specify that we want to allow the user to upload multiple files in a single request
   form.multiples = true;
 
