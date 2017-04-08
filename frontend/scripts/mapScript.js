@@ -65,6 +65,14 @@ function dumpData(){
         dataType: "text",
         success: function(data){
             var schools = [];
+            if(data == "database empty"){
+                console.log("empty");
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 3,
+                    center: {lat: 0, lng: 0}
+                });  
+                return;
+            }
             while(data.length != 0){
                 var parsed = data.substring(0,data.indexOf("}")+1);
                 data = data.substring(data.indexOf("}") + 2);
@@ -72,17 +80,18 @@ function dumpData(){
             }
             console.log("recieved data dump");
             console.log(schools);
-            populateSchools(schools);
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 6,
-                center: homeLocation
+                zoom: 8,
+                //center: {lat: -34.397, lng: 150.644}
             });
+            centerOnMarker(schools[0].lat, schools[0].lon); 
+            populateSchools(schools);
         }
     });  
 }
 
-function centerOnMarker(latitude, longitude, map){
-    newPosition = {lat: latitude, lng: longitude};
+function centerOnMarker(latitude, longitude){
+    newPosition = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
     zoom: 8,
     map.setCenter(newPosition)
 }
@@ -94,7 +103,7 @@ function populateSchools(schoolArray) {
         console.log(schoolArray[i].lat);
         console.log(schoolArray[i].lon);
         addMarker(parseFloat(schoolArray[i].lat), parseFloat(schoolArray[i].lon), map, schoolArray[i].name)
-        //addMarker(latArraY[i], longArray[i], map, detailArray[i])
+        //addMarker(0, 0, map, "test")
         console.log(i);
     }
 }
