@@ -17,20 +17,10 @@ function addManyMarkers(latArray, longArray, map) {
 
   function initMap() {
     console.log("Hello");
- /*   $.ajax({
-        url: "localhost:3000",
-        datatype: "json"
-    }).done(function(data){
-       var JSONarray = data;
-       console.log(JSONarray);
-    });
-
-      $.getJSON("localhost:3000", function(data){
-        console.log(data);
-      });
-*/
+    schoolData = dumpData();
+      console.log(schoolData);
+      console.log("printed schoolData");
     var homeLocation = {lat: 7.9465, lng: -1};
-    var Ghana2 = {lat: 7.9465, lng: -3};
           
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 6,
@@ -76,3 +66,27 @@ function loadData(schoolName){
     var schoolData = JSON.parse(responseJSON);
     return schoolData;
 }
+
+//$('#dump').on('click', function(){
+
+function dumpData(){
+    console.log("requesting dump");
+    $.ajax({
+        url: 'http://localhost:3000/database/',
+        type: 'GET',
+        dataType: "text",
+        success: function(data){
+            var schools = [];
+            while(data.length != 0){
+                var parsed = data.substring(0,data.indexOf("}")+1);
+                data = data.substring(data.indexOf("}") + 2);
+                schools.push(JSON.parse(parsed));
+            }
+            console.log(schools);
+            return schools;
+        }
+    });  
+}
+
+
+
