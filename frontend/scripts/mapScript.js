@@ -4,6 +4,7 @@ function addManyMarkers(latArray, longArray, map) {
     numberLocations = locationArray.length;
     for (var i = 0; i < numberLocations; i++){
         addMarker(latArraY[i], longArray[i], map, detailArray[i])
+        console.log("Hi");
     }            
 }
 
