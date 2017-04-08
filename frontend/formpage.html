@@ -4,21 +4,23 @@
     <meta charset="utf8">
     <title>Form Submission</title>
         <link href="styles/main.css" type="text.css" rel="stylesheet">
-        <link hred="bootstrap-3.3.7-dist/css/bootstrap/css" type="text/css" rel="stylesheet">
+        <link href="bootstrap-3.3.7-dist/css/bootstrap/css" type="text/css" rel="stylesheet">
     </head>
 <body>
     <form>
-    School name:<br>
-        <input type="text" name="schoolname">
-        <br>
-    Administrative contact name: <br>
+        <div class="submission-form">
+            <label for="school_name">School Name</label>
+            <input type="text" name="schoolname">
+        </div>
+        <div class="submission-form">
+            <label for="contact_name">Administrative Contact Name</label>
         <input type="text" name="adminname">
-        <br>
-    Phone number: <br>
-        <input type="text" name="phonenum">
-        <br>
-        <br>
-        <input type="submit" value="Submit">
+        </div>
+        <div class="submission-form">
+            <label for="phone_number">Phone Number</label>
+            <input type="number" name="phonenum">
+        </div>
+        <button type="submit" class="btn btn-default"> Submit </button>
     </form>
     </body>
 </html>
