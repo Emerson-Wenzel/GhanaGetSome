@@ -1,19 +1,36 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Form Submission</title>
-
+        <link href="styles/main.css" rel="stylesheet">
+        <link href="styles/bootstrap-3.3.7-dist/css/bootstrap/css" type="text/css" rel="stylesheet">
     </head>
 <body>
+    <h1>School Submission Form</h1>
     <form>
-    School name:<br>
-        <input type="text" name="schoolname">
-        <br>
-    Administrative contact name: <br>
+            <div class="submission-form">
+            <label for="school_name">School Name</label>
+            <br>
+            <input type="text" name="schoolname">
+        </div>
+        <div class="submission-form">
+            <label for="location co-ordinates">Location Co-Ordinates</label>
+            <br>
+            <input type="number" name="latitude">
+            <input type="number" name="longitude">
+        </div>
+        <div class="submission-form">
+            <label for="contact_name">Administrative Contact Name</label>
+            <br>
         <input type="text" name="adminname">
-        <br>
-    Phone number: <br>
-        <input type="text" name="phonenum">
+        </div>
+        <div class="submission-form">
+            <label for="phone_number">Phone Number</label><br>
+            <input type="text" name="phonenum">
+            <br><br>
+        </div>
+        <input type="button" value ="Submit">
         <br>
     </form>
     </body>
