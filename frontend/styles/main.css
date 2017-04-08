@@ -1,6 +1,44 @@
 /*CSS File*/
 
 h1 {
-  color: black;
-  font-family: sans-serif;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+input:focus{
+    border: 15px bold #555;
+}
+
+input{
+    background-color: white;
+    padding-top: 10px;
+}
+
+input[type=text]{
+    font-size: 18px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-family: monospace;
+}
+
+input[type=number]{
+    font-size: 18px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+input[type=button] {
+    background-color: aliceblue;
+    border: none;
+    color: black;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-variant: small-caps;
+    padding: 13px 32px;
+    padding-bottom: 12px;
+    cursor: pointer;
+    width: 100%;
 }
