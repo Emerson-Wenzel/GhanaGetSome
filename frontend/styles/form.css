@@ -1,5 +1,35 @@
-/*form css*/
+/*form.css makes changes to the form file*/
 
-h1 {
-  color: red;
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+button {
+    font-family: sans-serif;
+    
+}
+form {
+    top: 10%;
+    padding-top: 0.1%;
+    background-color:rgba(0,0,0,0.7); 
+    padding-left: 0.5%;
+    padding-right: 0.3%;
+    font-family: sans-serif;
+    color: white;
+    position: absolute;
+    border: 3px solid white;
 }
