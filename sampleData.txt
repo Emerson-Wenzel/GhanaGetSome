@@ -15,3 +15,9 @@ Lat 37.8719
 Lon -122.2585
 DJ Vlad
 5106426000
+
+Accra Academy
+Lat 5.569664388
+Lon -0.239665708
+Samuel Ofori-Adjei
+233 30 222 1721
